@@ -16,9 +16,7 @@ McPAT is based on a paper called "McPAT: An Integrated Power, Area, and Timing M
 
 The power on the McPAT simulation is depicted in 3 forms. All the power is calculated with the sum of these 3 and from this formula:
 
-
-
-![power formula]("https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/commit/90aa83e77abf4fd88c93f61dca83e24827d9e3ea#diff-fcdb42be85385cc48ab87b46b3ffbb858bdc961821891053ed391a06766f749a")
+![power formula]("https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/blob/main/power_formula.png")
 
 **Dynamic Power**: the dynamic power that is spent in charging and discharging the capacitive loads when the circuit switches state, where C is the total load capacitance, Vdd is the supply voltage, ∆V is the voltage swing during switching, and fclk is the clock frequency. C depends on the circuit design and layout of each IC component; we calculate it using analytic models for regular structures such as memory arrays and wires, along with empirical models for random logic structures such as ALUs. The activity factor α indicates the fraction of total circuit capacitance being charged during a clock cycle. We calculate α using access statistics from architectural simulation together with circuit properties.
 
@@ -44,6 +42,10 @@ If we have a battery of a given capacity and two CPUs, one with power consumptio
 The power of the CPU is separated in many metrics, and by this we can lead to our conclusion. For example, if a CPU have a better performance when running a program but its static power consumtion is high, then for a given program that is very complex, if we can run this very fast, we can have an energy efficient run. In the other hand, if a CPU is slow but has a very small static power can run a program that is not complex but it needs time to finish better. So, the answer is that having the information that we get from McPAT, a 35W CPU could run a program with less batter consumed than a 25W CPU.
 
 ### 4. An Applied Example
+
+In this example we have a hypothetical problem that can be run to Xeon CPU 40 times faster than the ARM 9A CPU. We have to prove using the McPAT that, even given these facts, A9 can be more energy efficient.
+
+Looking at the numbers (https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/tree/main/info) we can easily see that the peak power of the ARM A9 (1.74189 W) is about 80 times less than the Xeon's (134.938 W). We can also observe a 400 times bigger leakage of the Xeon CPU (0.108687 W to 36.8319 W). Taking these numbers in consideration, we can confirm that even if a program runs 40 times faster in a CPU, we cannot lead to the conclusion that it is more energy efficient because we have to take in consideration the leakage, when the CPU is idle.
 
 
 
