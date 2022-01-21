@@ -52,23 +52,17 @@ def calculate_formula(info_dict):
         info_dict[d]["formula"] = formula
     return info_dict
 
-def get_e_d(info_dict= {}):
+def get_e_d(folder, info_dict= {}):
     for d in info_dict:
-        filename = f"specbzip__l1ds_{info_dict[d]["l1ds"]}__l1id_{info_dict[d]["l1id"]}__l2s_\
-            {info_dict[d]["l2s"]}__l1da_{info_dict[d]["l1da"]}__l1ia_{info_dict[d]["l1ia"]}__\
-            l2a_{info_dict[d]["l2a"]}__cl_{info_dict[d]["cl"]}"
-        with open(f"{folder_path}/{filename}", 'r') as f:
-            pass
-        os.system(
-			f"GEM5toMcPAT.py {filename}/stats.txt {filename}/config.json inorder_arm.xml -o made_xlms/{filename}"
-		)
-        os.system(
-			f"../mcpcat/mcpcat -infile made_xlms/{filename} -print_level 5 > made_prints/{filename}"
-		)
+        filename = f'specbzip__l1ds_{int(info_dict[d]["l1ds"])}__l1id_{int(info_dict[d]["l1is"])}__l2s_{int(info_dict[d]["l2s"])}__l1da_{int(info_dict[d]["l1da"])}__l1ia_{int(info_dict[d]["l1ia"])}__l2a_{int(info_dict[d]["l2a"])}__cl_{int(info_dict[d]["cl"])}'
+   #    with open(f"{folder_path}/{filename}", 'r') as f:
+   #         pass
+        os.system(f"python GEM5ToMcPAT.py {folder}/{filename}/stats.txt {folder}/{filename}/config.json inorder_arm.xml -o made_xmls/{filename}")
+        os.system(f"../mcpat/mcpat -infile made_xmls/{filename} -print_level 5 > made_prints/{filename}")
 
 dict = get_info("spec_results_p2_specbzip")
 dict = calculate_formula(dict)
-get_e_d(dict)
+get_e_d("spec_results_p2_specbzip",dict)
 
 
 print(dict)
