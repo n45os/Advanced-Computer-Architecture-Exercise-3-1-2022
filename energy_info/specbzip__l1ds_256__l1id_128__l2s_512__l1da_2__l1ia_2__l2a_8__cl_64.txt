@@ -1,0 +1,4 @@
+Reading simulation time from: made_prints/specbzip__l1ds_256__l1id_128__l2s_512__l1da_2__l1ia_2__l2a_8__cl_64
+Reading simulation time from: spec_results_p2_specbzip/specbzip__l1ds_256__l1id_128__l2s_512__l1da_2__l1ia_2__l2a_8__cl_64/stats.txt
+leakage: 2.355260 W, dynamic: 0.421745 W and runtime: 0.013599 sec
+energy is 37.764491 mJ

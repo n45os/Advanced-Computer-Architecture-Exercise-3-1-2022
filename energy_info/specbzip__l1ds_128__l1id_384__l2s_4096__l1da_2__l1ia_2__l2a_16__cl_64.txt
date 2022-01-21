@@ -1,0 +1,2 @@
+Reading simulation time from: made_prints/specbzip__l1ds_128__l1id_384__l2s_4096__l1da_2__l1ia_2__l2a_16__cl_64
+Reading simulation time from: spec_results_p2_specbzip/specbzip__l1ds_128__l1id_384__l2s_4096__l1da_2__l1ia_2__l2a_16__cl_64/stats.txt
