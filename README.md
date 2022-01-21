@@ -8,7 +8,7 @@ _Bountioukos-Spinaris Athanasios, Semester 7, 2022, AUTh_
 
 #### McPAT validation
 
-McPAT is based on a paper called "McPAT: An Integrated Power, Area, and Timing Modeling Framework for Multicore and Manycore Architectures", publicized in the 42th IEEE/ACM International Symposium on Microarchitecture (MICRO) in 2009. Based to the paper, the CPUs used are **Niagara**, **Niagara2**, **Alpha 21364** and **Xeon Tulsa**.
+McPAT is based on a paper called "McPAT: An Integrated Power, Area, and Timing Modeling Framework for Multicore and Manycore Architectures", publicized in the 42th IEEE/ACM International Symposium on Microarchitecture (MICRO) in 2009. Based to the paper, the CPUs used are **Niagara** (running at 1.2GHz with a 1.2V power supply), **Niagara2** (running at 1.4GHz with a 1.1V power supply), **Alpha 21364** (running at 1.2GHz with a 1.5V power supply) and **Xeon Tulsa** (running at 3.4GHz with a 1.25V power supply).
 
 ### 2. McPAT outputs
 
@@ -47,8 +47,20 @@ In this example we have a hypothetical problem that can be run to Xeon CPU 40 ti
 
 Looking at the numbers (https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/tree/main/info) we can easily see that the peak power of the ARM A9 (1.74189 W) is about 80 times less than the Xeon's (134.938 W). We can also observe a 400 times bigger leakage of the Xeon CPU (0.108687 W to 36.8319 W). Taking these numbers in consideration, we can confirm that even if a program runs 40 times faster in a CPU, we cannot lead to the conclusion that it is more energy efficient because we have to take in consideration the leakage, when the CPU is idle.
 
+## Sector 2. gem5 + McPAT: Optimizing EDAP Product
 
+### 1. EDAP
 
+The information for the **area** can be found just running the McPAT program and looking at the first lines. 
+
+The total **energy** will be calculated using the total power, multipling it with the runtime of the run.
+
+I didn't really understand what you mean with "delay". 
+a) If the **delay** is the runtime of the system, then we can get this information of the stats.txt file of the GEM5 output. 
+b) If it means how much time the system stayed idle waiting for something else to finish, then we could get this informaton comparing the static power with the total power and getting the proportion of this fraction of the total runtime: **(static_power/total_power)runtime**
+For now I will use the first one.
+
+### 2. Adding information to the Exercise 2 Outputs
 
 
 
