@@ -16,7 +16,7 @@ McPAT is based on a paper called "McPAT: An Integrated Power, Area, and Timing M
 
 The power on the McPAT simulation is depicted in 3 forms. All the power is calculated with the sum of these 3 and from this formula:
 
-![power formula]("https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/blob/main/power_formula.png")
+![power formula](https://github.com/n45os/Advanced-Computer-Architecture-Exercise-3-1-2022/blob/main/power_formula.png)
 
 **Dynamic Power**: the dynamic power that is spent in charging and discharging the capacitive loads when the circuit switches state, where C is the total load capacitance, Vdd is the supply voltage, ∆V is the voltage swing during switching, and fclk is the clock frequency. C depends on the circuit design and layout of each IC component; we calculate it using analytic models for regular structures such as memory arrays and wires, along with empirical models for random logic structures such as ALUs. The activity factor α indicates the fraction of total circuit capacitance being charged during a clock cycle. We calculate α using access statistics from architectural simulation together with circuit properties.
 
