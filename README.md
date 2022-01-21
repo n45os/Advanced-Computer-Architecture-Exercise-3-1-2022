@@ -81,4 +81,5 @@ This is probably because the cost function I made was taking in consideration th
 ### sources:
 
 https://www.hpl.hp.com/research/mcpat/
+
 https://www.hpl.hp.com/research/mcpat/micro09.pdf
